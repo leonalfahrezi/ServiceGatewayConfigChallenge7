@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: filmsModule
+          uri: https://servicefilmschallenge7-production.up.railway.app/
+          predicates:
+            - Path=/films/**
+        - id: usersModule
+          uri: https://serviceuserschallenge7-production.up.railway.app/
+          predicates:
+            - Path=/users/**, /api/auth/**
+        - id: invoiceModule
+          uri: https://serviceinvoicechallenge7-production.up.railway.app/
+          predicates:
+            - Path=/invoice/**
